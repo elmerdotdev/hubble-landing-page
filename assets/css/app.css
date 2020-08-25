@@ -93,6 +93,9 @@ p {
             width: 100%;
             max-width: 440px;
             text-align: center; } }
+        @media screen and (max-width: 480px) {
+          .intro .intro__wrapper .intro__content h1 {
+            font-size: 1.8rem; } }
       .intro .intro__wrapper .intro__content p {
         padding-right: 1rem; }
         @media screen and (max-width: 768px) {
