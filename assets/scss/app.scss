@@ -1,5 +1,4 @@
 $widthDesktop: 1280px;
-$widthMobile: 375px;
 $boxShadow: 0px 2px 9px -6px #333;
 
 @mixin favButton {
@@ -9,6 +8,7 @@ $boxShadow: 0px 2px 9px -6px #333;
   text-decoration: none;
   border-radius: 50px;
   box-shadow: $boxShadow;
+  transition: all 0.3s ease-in-out;
 }
 
 @mixin boxesLayout {
@@ -67,35 +67,80 @@ p {
   .header__wrapper {
     padding: 2.5rem 0;
     justify-content: space-between;
+    align-items: center;
+    .header__logo {
+      img {
+        @media screen and (max-width: 480px) {
+          max-width: 150px;
+        }
+      }
+    }
     .header__btn {
       a {
         @include favButton;
         background: #fff;
         color: #000;
+        &:hover {
+          background: #fe52c0;
+          color: #fff;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 0.75rem 2rem;
+        }
+        @media screen and (max-width: 480px) {
+          padding: 0.75rem 1rem;
+        }
       }
     }
   }
   .intro__wrapper {
     padding: 0.5rem 0 2rem;
     justify-content: space-between;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
     .intro__content {
+      padding: 3rem 0;
       width: 45%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      @media screen and (max-width: 1024px) {
+        width: 55%;
+      }
+      @media screen and (max-width: 768px) {
+        padding-top: 1rem;
+        width: auto;
+        align-items: center;
+      }
       h1 {
         margin-bottom: 0.5rem;
         padding-right: 5rem;
+        line-height: 1.4;
+        @media screen and (max-width: 768px) {
+          padding: 0;
+          width: 100%;
+          max-width: 440px;
+          text-align: center;
+        }
       }
       p {
         padding-right: 1rem;
+        @media screen and (max-width: 768px) {
+          padding-right: 0;
+          text-align: center;
+        }
       }
       a {
         @include favButton;
         margin-top: 1rem;
         background: #fe52c0;
         color: #fff;
+        &:hover {
+          background: #fff;
+          color: #fe52c0;
+        }
       }
     }
     .intro__image {
@@ -122,9 +167,24 @@ p {
     align-items: center;
     .boxes__box_left {
       @include boxesLayout;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       .boxes__content {
         padding: 5rem 6rem 5rem 5rem;
         width: 60%;
+        @media screen and (max-width: 1024px) {
+          padding: 5rem 2rem 5rem 1rem;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 1rem;
+          width: auto;
+          order: 2;
+          text-align: center;
+        }
+        @media screen and (max-width: 480px) {
+          padding: 0;
+        }
       }
       .boxes__image {
         flex: 1;
@@ -137,16 +197,35 @@ p {
     }
     .boxes__box_right {
       @include boxesLayout;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       .boxes__content {
         flex: 1;
         order: 2;
+        @media screen and (max-width: 768px) {
+          padding: 1rem;
+          text-align: center;
+        }
+        @media screen and (max-width: 480px) {
+          padding: 0;
+        }
       }
       .boxes__image {
         padding: 5rem 6rem 5rem 5rem;
         width: 60%;
         display: flex;
         align-items: center;
-        order: 1;
+        @media screen and (max-width: 1024px) {
+          padding: 5rem 2rem 5rem 1rem;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 1rem;
+          width: auto;
+        }
+        @media screen and (max-width: 480px) {
+          padding: 0;
+        }
         img {
           max-width: 100%;
         }
@@ -162,15 +241,31 @@ p {
       flex-direction: column;
       justify-content: center;
       background: #fff;
+      @media screen and (max-width: 480px) {
+        padding: 3rem 1rem;
+      }
       h3 {
         margin-top: 0;
         font-size: 1.7rem;
+        @media screen and (max-width: 768px) {
+          text-align: center;
+        }
+        @media screen and (max-width: 480px) {
+          font-size: 1.4rem;
+        }
       }
       a {
         @include favButton;
         padding: 1rem 5rem;
         background: #fe52c0;
         color: #fff;
+        &:hover {
+          background: #fff;
+          color: #fe52c0;
+        }
+        @media screen and (max-width: 768px) {
+          padding: 1rem 2rem;
+        }
       }
     }
   }
@@ -185,18 +280,28 @@ p {
   a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: #fe52c0;
+    }
   }
   .wrapper {
-    padding: 10rem 0 6rem;
+    padding: 10rem 0 3rem;
     flex-direction: column;
     .footer__logo {
       padding-bottom: 2rem;
     }
     .footer__container {
       display: flex;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       .footer__info {
         flex: 2;
         font-size: 0.9rem;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 2.5rem;
+        }
         .table {
           display: table;
           .table__row {
@@ -210,6 +315,9 @@ p {
             &_desc {
               display: table-cell;
               padding: 0 7rem 1.2rem 0;
+              @media screen and (max-width: 1024px) {
+                padding-right: 2rem;
+              }
             }
           }
         }
@@ -217,6 +325,10 @@ p {
       .footer__menu {
         flex: 2;
         display: flex;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          margin-bottom: 2.5rem;
+        }
         > div {
           flex: 1;
           ul {
@@ -232,14 +344,21 @@ p {
       }
       .footer__social {
         flex: 1;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 1.5rem;
+          text-align: center;
+        }
         a {
           margin-right: 0.5rem;
         }
       }
     }
     .footer__copyright {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       text-align: right;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
     }
   }
 }
